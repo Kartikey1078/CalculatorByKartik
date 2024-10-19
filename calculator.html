@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            background: rgba(59, 70, 100, 1);
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Screen {
+            padding: 15px;
+            font-size: 73px;
+            text-align: right;
+            font-weight: 800;
+            width: 100%;
+            height: 100%;
+            border: none;
+            color: white;
+            background: rgba(24, 31, 50, 1);
+            border-radius: 12px;
+        }
+
+        .screenDiv {
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: center;
+            width: 536px;
+            height: 142.73px;
+            top: 194px;
+            left: 466px;
+            gap: 0px;
+            border-radius: 12px 0px 0px 0px;
+            opacity: 0px;
+            border-radius: 12px;
+        }
+
+        .btnDivParent {
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            width: 536px;
+            height: 487px;
+            border-radius: 12px;
+            margin-top: 25px;
+            background: rgba(37, 45, 68, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btnDiv {
+
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            width: Hug (466px)px;
+            height: Hug (392px)px;
+            top: 48px;
+            left: 35px;
+            gap: 23px;
+            opacity: 0px;
+            height: 80%;
+        }
+
+        .btnNumber {
+            width: 100px;
+            height: 60px;
+            gap: 0px;
+            border-radius: 12px;
+            opacity: 0px;
+            border: none;
+            color: rgba(59, 70, 100, 1);
+            font-size: 30px;
+            font-weight: 700;
+            background: rgba(234, 227, 219, 1);
+        }
+
+        .delete {
+            background: rgba(100, 114, 153, 1);
+            color: rgba(255, 255, 255, 1);
+            font-size: 24px;
+        }
+
+        .result {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            width: 100%;
+            background: rgba(209, 63, 48, 1);
+            font-size: 23px;
+            color: white;
+        }
+
+        .clear {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            width: 100%;
+            font-size: 23px;
+        }
+    </style>
+    <div class="parent">
+        <div class="child">
+            <div class="screenDiv">
+                <input type="text"  id="screen" class="Screen">
+            </div>
+            <div class="btnDivParent">
+                <div class="btnDiv">
+                    <button value="7" class="btnNumber" onclick="displayNum('7')">7</button>
+                    <button value="8" class="btnNumber" onclick="displayNum('8')">8</button>
+                    <button value="9" class="btnNumber" onclick="displayNum('9')">9</button>
+                    <button id="clearScreen" class="btnNumber delete" onclick="DeleteLastValue()">DEL</button>
+                    <button value="4" class="btnNumber" onclick="displayNum('4')">4</button>
+                    <button value="5" class="btnNumber" onclick="displayNum('5')">5</button>
+                    <button value="6" class="btnNumber" onclick="displayNum('6')">6</button>
+                    <button value="+" class="btnNumber" onclick="displayNum('+')">+</button>
+                    <button value="1" class="btnNumber" onclick="displayNum('1')">1</button>
+                    <button value="2" class="btnNumber" onclick="displayNum('2')">2</button>
+                    <button value="3" class="btnNumber" onclick="displayNum('3')">3</button>
+                    <button value="-" class="btnNumber" onclick="displayNum('-')">-</button>
+                    <button value="." class="btnNumber" onclick="displayNum('.')">.</button>
+                    <button value="0" class="btnNumber" onclick="displayNum('0')">0</button>
+                    <button value="/" class="btnNumber" onclick="displayNum('/')">/</button>
+                    <button value="*" class="btnNumber" onclick="displayNum('+')">*</button>
+                    <button id="clearScreen" class="btnNumber clear" onclick="ClearScreen()">RESET</button>
+                    <button value="=" class="btnNumber result" onclick="EvaluateNumber('=')">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function displayNum(value) {
+            let btnNumber = document.querySelector('.Screen').value += value
+        }
+        function EvaluateNumber() {
+            let values = document.getElementById('screen').value
+            let evaluate = eval(values)
+            let screenUpdate = document.querySelector('.Screen').value = evaluate
+        }
+        function ClearScreen() {
+            let clear = document.getElementById('screen').value = 0
+        }
+        function DeleteLastValue() {
+            let screen = document.getElementById('screen');
+            screen.value = screen.value.slice(0, -1);
+        }
+
+    </script>
+</body>
+
+</html>
